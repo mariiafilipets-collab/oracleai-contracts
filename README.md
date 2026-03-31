@@ -122,7 +122,6 @@ npx hardhat verify --network bscMainnet <CONTRACT_ADDRESS>
 ## Links
 
 - **Website:** [oraclepredict.ai](https://www.oraclepredict.ai)
-- **App:** [oracleai-predict.app](https://oracleai-predict.app)
 - **BscScan:** [View Contracts](https://bscscan.com/address/0xD22e115607f1a42a659bAb49683E055f71851E42)
 - **Twitter:** [@oraclepredictai](https://x.com/oraclepredictai)
 - **Telegram:** [OracleAiPredict](https://t.me/OracleAiPredict)
