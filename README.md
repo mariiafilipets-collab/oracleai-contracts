@@ -1,28 +1,52 @@
-# OracleAI Predict — Smart Contracts (BSC Mainnet)
+# OracleAI Predict
 
-8 verified smart contracts powering the AI-powered prediction market on BNB Smart Chain.
+AI-powered decentralized prediction market built on **BNB Smart Chain (BSC)**. Users predict real-world events, compete against an autonomous AI oracle, and earn BNB rewards through seasonal prize pools.
 
-## Overview
+## Technology Stack
 
-OracleAI Predict is a prediction market where users vote YES/NO on real-world events across Sports, Crypto, Economy, Politics, and Climate. An autonomous AI agent generates and resolves events using real-time data. Users who predict correctly AND beat the AI earn 2x rewards.
+- **Blockchain**: BNB Smart Chain (BSC Mainnet, Chain ID: 56)
+- **Smart Contracts**: Solidity ^0.8.24
+- **Frontend**: Next.js 14 + React 18 + wagmi + ethers.js
+- **Development**: Hardhat (optimizer 200 runs, viaIR), OpenZeppelin Contracts
+- **Oracle**: Chainlink VRF v2
+- **AI Agent**: OpenClaw (autonomous event generation & resolution)
 
-## Deployed Contracts (BSC Mainnet — Chain 56)
+## Supported Networks
+
+- **BNB Smart Chain Mainnet** (Chain ID: 56) — Production deployment
+- **BNB Smart Chain Testnet** (Chain ID: 97) — Development & testing
+
+## Contract Addresses
+
+### BSC Mainnet (Chain 56)
 
 | Contract | Address | Description |
 |----------|---------|-------------|
 | **Prediction** | [`0xD22e115607f1a42a659bAb49683E055f71851E42`](https://bscscan.com/address/0xD22e115607f1a42a659bAb49683E055f71851E42) | Core voting: YES/NO predictions, fee split, Beat AI rewards |
-| **Points** | [`0x00Ede3194965A71d696F927583ce94AA5D9aa99C`](https://bscscan.com/address/0x00Ede3194965A71d696F927583ce94AA5D9aa99C) | Points tracking, leaderboard |
+| **Points** | [`0x00Ede3194965A71d696F927583ce94AA5D9aa99C`](https://bscscan.com/address/0x00Ede3194965A71d696F927583ce94AA5D9aa99C) | Points tracking, seasonal leaderboard |
 | **CheckIn** | [`0x6ffB91eb7AE7D041296C63D9cf5DDEa90236249F`](https://bscscan.com/address/0x6ffB91eb7AE7D041296C63D9cf5DDEa90236249F) | Daily check-in with streak bonuses |
-| **Referral** | [`0x7db3CAC0548e41fb990c0B511de561ebd3abaDCc`](https://bscscan.com/address/0x7db3CAC0548e41fb990c0B511de561ebd3abaDCc) | 6-level referral system |
+| **Referral** | [`0x7db3CAC0548e41fb990c0B511de561ebd3abaDCc`](https://bscscan.com/address/0x7db3CAC0548e41fb990c0B511de561ebd3abaDCc) | 6-level referral tree |
 | **PrizePool** | [`0xABf45860CfaE1c95B3A32a5853c1A2bAAAE2089A`](https://bscscan.com/address/0xABf45860CfaE1c95B3A32a5853c1A2bAAAE2089A) | Season-aware prize pool with Merkle claims |
 | **QuestClaim** | [`0x74B0D8f130e176cE4ae72527b02068D557e85811`](https://bscscan.com/address/0x74B0D8f130e176cE4ae72527b02068D557e85811) | On-chain quest claims with EIP-712 signatures |
-| **Staking** | [`0x64CcE996c9285e15ff17e3924971AD78A068F39F`](https://bscscan.com/address/0x64CcE996c9285e15ff17e3924971AD78A068F39F) | OAI staking with 4 tiers |
+| **Staking** | [`0x64CcE996c9285e15ff17e3924971AD78A068F39F`](https://bscscan.com/address/0x64CcE996c9285e15ff17e3924971AD78A068F39F) | OAI token staking with 4 tiers |
 | **InsurancePool** | [`0x4fc5bCA3b8Ea3c90B630411410f7a78FA8828353`](https://bscscan.com/address/0x4fc5bCA3b8Ea3c90B630411410f7a78FA8828353) | Insurance pool for risk management |
 | **OAI Token** | TGE Q4 2026 | ERC-20, 1B total supply, deflationary |
 
+All contracts are **verified on BscScan**.
+
+## Features
+
+- **AI-Powered Predictions on BNB Chain**: Autonomous AI agent generates and resolves real-world events across Sports, Crypto, Economy, Politics, and Climate — all settled on BSC
+- **Beat the AI Mechanic**: Unique human-vs-AI competition — earn 2x points when your prediction beats the AI oracle, fully calculated on-chain
+- **Gas-Efficient Design for BSC**: Micro-predictions from 0.00015 BNB (~$0.10) made viable by BSC's low gas fees, with optimized contract interactions
+- **On-Chain Fee Distribution**: Automatic BNB fee splitting — 65% to seasonal prize pool, 13% referrals, 12% treasury, 5% burn, 3% staking, 2% insurance
+- **Seasonal Prize Pools**: 2-week competitive seasons with Merkle-tree BNB prize claims, fully on-chain season isolation via PrizePool contract
+- **6-Level Referral System**: On-chain referral tree with cascading BNB rewards (5%/3%/2%/1.5%/1%/0.5%)
+- **Security**: AccessControl roles, ReentrancyGuard on all BNB transfers, 48-hour governance timelock, insurance pool with 25% max payout cap
+
 ## Architecture
 
-### Fee Split (100% of voting fees)
+### Fee Split (100% of BNB voting fees, on-chain)
 
 | Recipient | Share |
 |-----------|-------|
@@ -33,7 +57,7 @@ OracleAI Predict is a prediction market where users vote YES/NO on real-world ev
 | Staking Rewards | 3% |
 | Insurance | 2% |
 
-### Vote Points (on-chain)
+### Vote Points (calculated on-chain in Prediction.sol)
 
 | Outcome | Base Points | Basic (1x) | Pro (3x) | Whale (10x) |
 |---------|------------|------------|----------|-------------|
@@ -41,7 +65,7 @@ OracleAI Predict is a prediction market where users vote YES/NO on real-world ev
 | Beat AI (AI was wrong) | 50 x 2 | 100 | 300 | 1000 |
 | Wrong | 0 | 0 | 0 | 0 |
 
-### Staking Tiers
+### Staking Tiers (on-chain in Staking.sol)
 
 | Tier | OAI Required | Points Boost | Referral Boost |
 |------|-------------|-------------|----------------|
@@ -52,27 +76,37 @@ OracleAI Predict is a prediction market where users vote YES/NO on real-world ev
 
 ## Contract Files
 
-All 8 contracts are deployed and verified on BSC Mainnet (Chain 56).
+All 8 contracts are deployed and verified on **BNB Smart Chain Mainnet (Chain 56)**.
 
 ```
 contracts/
-  Prediction.sol    — Core prediction voting and resolution, fee split, Beat AI
-  Points.sol        — Points system and leaderboard
+  Prediction.sol    — Core prediction voting, resolution, fee split, Beat AI logic
+  Points.sol        — Points system and seasonal leaderboard
   CheckIn.sol       — Daily check-in with streak bonuses (up to +50%)
-  Referral.sol      — 6-level referral tree (5%/3%/2%/1.5%/1%/0.5%)
-  PrizePool.sol     — Season-aware prize pool with Merkle claims
+  Referral.sol      — 6-level referral tree with BNB cascading rewards
+  PrizePool.sol     — Season-aware BNB prize pool with Merkle claims
   QuestClaim.sol    — On-chain quest claiming (EIP-712 signatures)
   Staking.sol       — OAI token staking (4 tiers: Bronze/Silver/Gold/Diamond)
-  InsurancePool.sol — Insurance fund (25% max payout)
+  InsurancePool.sol — Insurance fund (25% max payout cap)
 ```
 
-## Tech Stack
+## BSC Network Configuration
 
-- **Solidity** 0.8.24
-- **Hardhat** with optimizer (200 runs) + viaIR
-- **OpenZeppelin** Contracts (AccessControl, ReentrancyGuard, ERC20)
-- **Chainlink** VRF v2
-- **BNB Smart Chain** (Mainnet Chain 56)
+```javascript
+// hardhat.config.js
+networks: {
+  bscMainnet: {
+    url: "https://bsc-dataseed1.bnbchain.org:8545",
+    chainId: 56,
+    gasPrice: 3000000000, // 3 gwei — optimized for BSC
+  },
+  bscTestnet: {
+    url: "https://data-seed-prebsc-1-s1.bnbchain.org:8545",
+    chainId: 97,
+    gasPrice: 5000000000,
+  },
+}
+```
 
 ## Setup
 
@@ -82,10 +116,24 @@ npx hardhat compile
 npx hardhat test
 ```
 
+## Deploy to BSC
+
+```bash
+# BSC Testnet
+npx hardhat run scripts/deploy.js --network bscTestnet
+
+# BSC Mainnet
+npx hardhat run scripts/deploy.js --network bscMainnet
+
+# Verify on BscScan
+npx hardhat verify --network bscMainnet <CONTRACT_ADDRESS>
+```
+
 ## Links
 
 - **Website:** [oraclepredict.ai](https://www.oraclepredict.ai)
 - **App:** [oracleai-predict.app](https://oracleai-predict.app)
+- **BscScan:** [View Contracts](https://bscscan.com/address/0xD22e115607f1a42a659bAb49683E055f71851E42)
 - **Twitter:** [@oraclepredictai](https://x.com/oraclepredictai)
 - **Telegram:** [OracleAiPredict](https://t.me/OracleAiPredict)
 - **Discord:** [Join](https://discord.com/invite/hKPfspcKz)
