@@ -14,11 +14,10 @@ AI-powered decentralized prediction market built on **BNB Smart Chain (BSC)**. U
 ## Supported Networks
 
 - **BNB Smart Chain Mainnet** (Chain ID: 56) — Production deployment
-- **BNB Smart Chain Testnet** (Chain ID: 97) — Development & testing
 
 ## Contract Addresses
 
-### BSC Mainnet (Chain 56)
+### BNB Smart Chain Mainnet (Chain 56)
 
 | Contract | Address | Description |
 |----------|---------|-------------|
@@ -100,11 +99,6 @@ networks: {
     chainId: 56,
     gasPrice: 3000000000, // 3 gwei — optimized for BSC
   },
-  bscTestnet: {
-    url: "https://data-seed-prebsc-1-s1.bnbchain.org:8545",
-    chainId: 97,
-    gasPrice: 5000000000,
-  },
 }
 ```
 
@@ -116,13 +110,9 @@ npx hardhat compile
 npx hardhat test
 ```
 
-## Deploy to BSC
+## Deploy to BSC Mainnet
 
 ```bash
-# BSC Testnet
-npx hardhat run scripts/deploy.js --network bscTestnet
-
-# BSC Mainnet
 npx hardhat run scripts/deploy.js --network bscMainnet
 
 # Verify on BscScan
