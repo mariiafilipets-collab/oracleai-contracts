@@ -1,6 +1,6 @@
-# OracleAI Predict — Smart Contracts
+# OracleAI Predict — Smart Contracts (BSC Mainnet)
 
-AI-powered decentralized prediction market on BNB Smart Chain.
+8 verified smart contracts powering the AI-powered prediction market on BNB Smart Chain.
 
 ## Overview
 
@@ -52,24 +52,18 @@ OracleAI Predict is a prediction market where users vote YES/NO on real-world ev
 
 ## Contract Files
 
+All 8 contracts are deployed and verified on BSC Mainnet (Chain 56).
+
 ```
 contracts/
-  Prediction.sol         — Core prediction voting and resolution
-  Points.sol             — Points system and leaderboard
-  CheckIn.sol            — Daily check-in with streak bonuses
-  Referral.sol           — 6-level referral tree (5%/3%/2%/1.5%/1%/0.5%)
-  PrizePool.sol          — Base prize pool
-  PrizePoolV2.sol        — Enhanced prize pool
-  PrizePoolV3.sol        — Season-aware prize pool with Merkle claims
-  QuestClaim.sol         — On-chain quest claiming (EIP-712)
-  Staking.sol            — OAI token staking (4 tiers)
-  InsurancePool.sol      — Insurance fund (25% max payout)
-  OAIToken.sol           — ERC-20 token (1B supply, deflationary)
-  OAIVesting.sol         — Token vesting schedules
-  OracleGovernance.sol   — On-chain governance voting
-  OracleTimelock.sol     — 48-hour timelock for governance
-  PredictionNFT.sol      — Achievement NFTs
-  VRFBonusDistributor.sol — Chainlink VRF bonus distribution
+  Prediction.sol    — Core prediction voting and resolution, fee split, Beat AI
+  Points.sol        — Points system and leaderboard
+  CheckIn.sol       — Daily check-in with streak bonuses (up to +50%)
+  Referral.sol      — 6-level referral tree (5%/3%/2%/1.5%/1%/0.5%)
+  PrizePool.sol     — Season-aware prize pool with Merkle claims
+  QuestClaim.sol    — On-chain quest claiming (EIP-712 signatures)
+  Staking.sol       — OAI token staking (4 tiers: Bronze/Silver/Gold/Diamond)
+  InsurancePool.sol — Insurance fund (25% max payout)
 ```
 
 ## Tech Stack
