@@ -21,14 +21,14 @@ AI-powered decentralized prediction market built on **BNB Smart Chain (BSC)**. U
 
 | Contract | Address | Description |
 |----------|---------|-------------|
-| **Prediction** | [`0xD22e115607f1a42a659bAb49683E055f71851E42`](https://bscscan.com/address/0xD22e115607f1a42a659bAb49683E055f71851E42) | Core voting: YES/NO predictions, fee split, Beat AI rewards |
-| **Points** | [`0x00Ede3194965A71d696F927583ce94AA5D9aa99C`](https://bscscan.com/address/0x00Ede3194965A71d696F927583ce94AA5D9aa99C) | Points tracking, seasonal leaderboard |
-| **CheckIn** | [`0x6ffB91eb7AE7D041296C63D9cf5DDEa90236249F`](https://bscscan.com/address/0x6ffB91eb7AE7D041296C63D9cf5DDEa90236249F) | Daily check-in with streak bonuses |
-| **Referral** | [`0x7db3CAC0548e41fb990c0B511de561ebd3abaDCc`](https://bscscan.com/address/0x7db3CAC0548e41fb990c0B511de561ebd3abaDCc) | 6-level referral tree |
-| **PrizePool** | [`0xABf45860CfaE1c95B3A32a5853c1A2bAAAE2089A`](https://bscscan.com/address/0xABf45860CfaE1c95B3A32a5853c1A2bAAAE2089A) | Season-aware prize pool with Merkle claims |
-| **QuestClaim** | [`0x74B0D8f130e176cE4ae72527b02068D557e85811`](https://bscscan.com/address/0x74B0D8f130e176cE4ae72527b02068D557e85811) | On-chain quest claims with EIP-712 signatures |
-| **Staking** | [`0x64CcE996c9285e15ff17e3924971AD78A068F39F`](https://bscscan.com/address/0x64CcE996c9285e15ff17e3924971AD78A068F39F) | OAI token staking with 4 tiers |
-| **InsurancePool** | [`0x4fc5bCA3b8Ea3c90B630411410f7a78FA8828353`](https://bscscan.com/address/0x4fc5bCA3b8Ea3c90B630411410f7a78FA8828353) | Insurance pool for risk management |
+| **PredictionEvent** | [`0xD22e115607f1a42a659bAb49683E055f71851E42`](https://bscscan.com/address/0xD22e115607f1a42a659bAb49683E055f71851E42) | Event creation, voting, resolution, fee split, Beat AI rewards |
+| **Points** | [`0x00Ede3194965A71d696F927583ce94AA5D9aa99C`](https://bscscan.com/address/0x00Ede3194965A71d696F927583ce94AA5D9aa99C) | On-chain points tracking, seasonal leaderboard |
+| **CheckIn** | [`0x6ffB91eb7AE7D041296C63D9cf5DDEa90236249F`](https://bscscan.com/address/0x6ffB91eb7AE7D041296C63D9cf5DDEa90236249F) | Daily check-in with fee split and streak bonuses |
+| **Referral** | [`0xA6367BCda89a84E3FAB998E9bc275ffAA148f742`](https://bscscan.com/address/0xA6367BCda89a84E3FAB998E9bc275ffAA148f742) | 6-level referral tree |
+| **PrizePool** | [`0xABf45860CfaE1c95B3A32a5853c1A2bAAAE2089A`](https://bscscan.com/address/0xABf45860CfaE1c95B3A32a5853c1A2bAAAE2089A) | Season prizes with Merkle claims |
+| **QuestClaim** | [`0x74B0D8f130e176cE4ae72527b02068D557e85811`](https://bscscan.com/address/0x74B0D8f130e176cE4ae72527b02068D557e85811) | EIP-712 signed quest rewards |
+| **Staking** | [`0x64CcE996c9285e15ff17e3924971AD78A068F39F`](https://bscscan.com/address/0x64CcE996c9285e15ff17e3924971AD78A068F39F) | OAI staking with tier boosts |
+| **InsurancePool** | [`0x4fc5bCA3b8Ea3c90B630411410f7a78FA8828353`](https://bscscan.com/address/0x4fc5bCA3b8Ea3c90B630411410f7a78FA8828353) | Platform insurance fund |
 | **OAI Token** | TGE Q4 2026 | ERC-20, 1B total supply, deflationary |
 
 All contracts are **verified on BscScan**.
@@ -79,7 +79,7 @@ All 8 contracts are deployed and verified on **BNB Smart Chain Mainnet (Chain 56
 
 ```
 contracts/
-  Prediction.sol    — Core prediction voting, resolution, fee split, Beat AI logic
+  Prediction.sol    — PredictionEvent: creation, voting, resolution, fee split, Beat AI
   Points.sol        — Points system and seasonal leaderboard
   CheckIn.sol       — Daily check-in with streak bonuses (up to +50%)
   Referral.sol      — 6-level referral tree with BNB cascading rewards
