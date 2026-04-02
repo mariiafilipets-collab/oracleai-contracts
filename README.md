@@ -21,7 +21,7 @@ AI-powered decentralized prediction market built on **BNB Smart Chain (BSC)**. U
 
 | Contract | Address | Description |
 |----------|---------|-------------|
-| **PredictionEvent** | [`0xD22e115607f1a42a659bAb49683E055f71851E42`](https://bscscan.com/address/0xD22e115607f1a42a659bAb49683E055f71851E42) | Event creation, voting, resolution, fee split, Beat AI rewards |
+| **PredictionEvent** | [`0x7399735f858Ba55C6B3870c345e3A7927B23b4A2`](https://bscscan.com/address/0x7399735f858Ba55C6B3870c345e3A7927B23b4A2) | Event creation, voting, resolution, fee split, Beat AI rewards |
 | **Points** | [`0x00Ede3194965A71d696F927583ce94AA5D9aa99C`](https://bscscan.com/address/0x00Ede3194965A71d696F927583ce94AA5D9aa99C) | On-chain points tracking, seasonal leaderboard |
 | **CheckIn** | [`0x6ffB91eb7AE7D041296C63D9cf5DDEa90236249F`](https://bscscan.com/address/0x6ffB91eb7AE7D041296C63D9cf5DDEa90236249F) | Daily check-in with fee split and streak bonuses |
 | **Referral** | [`0xA6367BCda89a84E3FAB998E9bc275ffAA148f742`](https://bscscan.com/address/0xA6367BCda89a84E3FAB998E9bc275ffAA148f742) | 6-level referral tree |
@@ -122,7 +122,7 @@ npx hardhat verify --network bscMainnet <CONTRACT_ADDRESS>
 ## Links
 
 - **Website:** [oraclepredict.ai](https://www.oraclepredict.ai)
-- **BscScan:** [View Contracts](https://bscscan.com/address/0xD22e115607f1a42a659bAb49683E055f71851E42)
+- **BscScan:** [View Contracts](https://bscscan.com/address/0x7399735f858Ba55C6B3870c345e3A7927B23b4A2)
 - **Twitter:** [@oraclepredictai](https://x.com/oraclepredictai)
 - **Telegram:** [OracleAiPredict](https://t.me/OracleAiPredict)
 - **Discord:** [Join](https://discord.com/invite/hKPfspcKz)
